@@ -11,8 +11,8 @@ interface StatusRadarProps {
 
 export const StatusRadar: React.FC<StatusRadarProps> = ({
   dbLatencyMs,
-  dockerActive = true,
-  modelReady = true,
+  dockerActive = false,
+  modelReady = false,
   className = ''
 }) => {
   return (
@@ -48,18 +48,18 @@ export const StatusRadar: React.FC<StatusRadarProps> = ({
         <Shield className={clsx('w-3.5 h-3.5', dockerActive ? 'text-cyan-700' : 'text-rose-700')} />
         <span className="font-semibold">SANDBOX</span>
         <span className={clsx('text-[11px]', dockerActive ? 'text-cyan-700' : 'text-rose-700')}>
-          {dockerActive ? 'ISOLATED' : 'OFFLINE'}
+          {dockerActive ? 'ISOLATED' : 'DISABLED'}
         </span>
       </div>
 
       {/* Gemini AI Engine Indicator */}
       <div 
-        title="Google Gemini Intelligence Active"
+        title={modelReady ? 'AI service verified' : 'AI service has not been verified'}
         className="hidden sm:flex items-center space-x-1.5 px-2.5 py-1 bg-graphite-850/80 border border-graphite-700/60 rounded-md text-text-secondary"
       >
         <Cpu className="w-3.5 h-3.5 text-teal-700" />
         <span className="font-semibold">GEMINI</span>
-        <span className="text-[11px] text-teal-700">3.5</span>
+        <span className="text-[11px] text-teal-700">{modelReady ? 'READY' : 'UNVERIFIED'}</span>
       </div>
     </div>
   );

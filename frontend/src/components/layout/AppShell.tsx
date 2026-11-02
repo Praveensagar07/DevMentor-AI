@@ -286,8 +286,8 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
           <div className="flex items-center space-x-3">
             <StatusRadar className="hidden xl:flex"
               dbLatencyMs={health?.latency_ms} 
-              dockerActive={true}
-              modelReady={true}
+              dockerActive={false}
+              modelReady={false}
             />
 
             <a
@@ -320,6 +320,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
 
         {/* Viewport Content Canvas */}
         <main id="workspace-main" className="flex-1 overflow-y-auto bg-canvas p-4 lg:p-7">
+          <div role="status" className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">Code execution is unavailable on this hosted version. Reproduction, repair verification, and challenge grading require an isolated worker. Email sign-in and repository analysis remain available.</div>
           {children}
         </main>
       </div>

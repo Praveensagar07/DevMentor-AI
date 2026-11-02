@@ -420,7 +420,7 @@ export const SecurityAuditPage: React.FC = () => {
                       variant="secondary"
                       size="sm"
                       onClick={() => handleReproduce(finding)}
-                      disabled={reproducing}
+                      disabled={true}
                     >
                       <Terminal className="w-3.5 h-3.5 mr-1.5 text-teal-700" />
                       <span>{reproducing && selectedFinding?.id === finding.id ? 'Reproducing in Sandbox...' : 'Reproduce Defect'}</span>
@@ -549,7 +549,7 @@ export const SecurityAuditPage: React.FC = () => {
                   <button
                     data-testid="reproduce-sandbox-btn"
                     onClick={() => handleReproduce(selectedFinding, 'fixture')}
-                    disabled={reproducing}
+                    disabled={true}
                     className="px-3 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-semibold text-xs font-mono uppercase tracking-wider transition shadow-sm disabled:opacity-50 flex items-center space-x-1.5"
                     title="Execute verified educational benchmark harness"
                   >
@@ -560,7 +560,7 @@ export const SecurityAuditPage: React.FC = () => {
                   <button
                     data-testid="reproduce-repo-btn"
                     onClick={() => handleReproduce(selectedFinding, 'repository')}
-                    disabled={reproducing}
+                    disabled={true}
                     className="px-3 py-1.5 rounded-xl bg-canvas-elevated hover:bg-canvas-elevated/80 text-text-secondary hover:text-text-primary border border-border-subtle text-xs font-mono transition disabled:opacity-50 flex items-center space-x-1"
                     title="Attempt direct execution on imported repository code (Requires Docker container)"
                   >

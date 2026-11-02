@@ -374,7 +374,7 @@ export const GuidedRepairPage: React.FC = () => {
               variant="primary"
               size="sm"
               onClick={handleVerify}
-              disabled={isVerifying}
+              disabled={true} title="Unavailable until an isolated worker is deployed"
             >
               <Play className="w-3.5 h-3.5 mr-1.5 fill-current" />
               <span>{isVerifying ? 'Verifying in Docker...' : 'Run Verification'}</span>
